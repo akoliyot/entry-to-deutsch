@@ -4,10 +4,16 @@ import styled from 'styled-components';
 const StyledAlphabet = styled.div`
   height: 140px;
   width: 140px;
-  background-color: crimson;
   font-family: 'Fira Code', 'Papyrus';
-`;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  > p {
+    font-size: 104px;
+    margin: 0;
+  }
+`;
 interface Props {
   char: string;
 }
@@ -15,7 +21,7 @@ interface Props {
 export const Alphabet: React.FC<Props> = ({ char }) => {
   return (
     <StyledAlphabet>
-      <p>StyledAlphabet</p>
+      <p>{char}</p>
     </StyledAlphabet>
   );
 };
