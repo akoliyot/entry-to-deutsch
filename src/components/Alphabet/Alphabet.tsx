@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import sound from '../../assets/a.wav';
 
@@ -11,6 +11,7 @@ const StyledAlphabet = styled.div`
   justify-content: center;
   border: 1px dashed #cacaca;
   margin-left: 100px;
+  cursor: pointer;
 
   > p {
     font-size: 104px;
@@ -22,8 +23,19 @@ interface Props {
 }
 
 export const Alphabet: React.FC<Props> = ({ char }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
   const playAudio = () => {
+    if (isPlaying) {
+      return;
+    }
+
+    setIsPlaying(true);
+
     const audio = new Audio(sound);
+    audio.addEventListener('ended', () => {
+      setIsPlaying(false);
+    });
     audio.play();
   };
 
