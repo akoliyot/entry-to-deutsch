@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import sound from '../../assets/a.wav';
 
 const StyledAlphabet = styled.div`
   height: 140px;
@@ -22,6 +21,16 @@ interface Props {
   char: string;
 }
 
+const getCharAudio = (char: string) => {
+  switch (char) {
+    case 'a':
+      return require('../../assets/a.wav');
+
+    case 'b':
+      return require('../../assets/b.wav');
+  }
+};
+
 export const Alphabet: React.FC<Props> = ({ char }) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -32,7 +41,7 @@ export const Alphabet: React.FC<Props> = ({ char }) => {
 
     setIsPlaying(true);
 
-    const audio = new Audio(sound);
+    const audio = new Audio(getCharAudio(char));
     audio.addEventListener('ended', () => {
       setIsPlaying(false);
     });
