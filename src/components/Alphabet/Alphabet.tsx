@@ -78,6 +78,14 @@ const getCharAudio = (char: string) => {
       return require('../../assets/y.wav');
     case 'z':
       return require('../../assets/z.wav');
+    case 'ä':
+      return require('../../assets/ae.wav');
+    case 'ö':
+      return require('../../assets/oe.wav');
+    case 'ü':
+      return require('../../assets/ue.wav');
+    case 'ß':
+      return require('../../assets/esszett.wav');
   }
 };
 

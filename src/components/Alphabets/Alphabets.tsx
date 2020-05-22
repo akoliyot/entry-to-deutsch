@@ -1,6 +1,7 @@
 import React from 'react';
 import { Alphabet, ALPHABET_STYLE_CONSTANTS } from '../Alphabet/Alphabet';
 import styled from 'styled-components';
+import { SpecialAlphabets } from '../SpecialAlphabets/SpecialAlphabets';
 
 const StyledAlphabets = styled.div`
   display: grid;
@@ -10,6 +11,7 @@ const StyledAlphabets = styled.div`
     ${ALPHABET_STYLE_CONSTANTS.boxSize}px
   );
   justify-content: space-between;
+  margin-bottom: 100px;
 `;
 
 export const Alphabets: React.FC = () => {
@@ -30,5 +32,10 @@ export const Alphabets: React.FC = () => {
     return alphabetComponents;
   };
 
-  return <StyledAlphabets>{generateAlphabets()}</StyledAlphabets>;
+  return (
+    <>
+      <StyledAlphabets>{generateAlphabets()}</StyledAlphabets>
+      <SpecialAlphabets />
+    </>
+  );
 };
