@@ -1,11 +1,14 @@
 import React from 'react';
-import { Alphabet } from '../Alphabet/Alphabet';
+import { Alphabet, ALPHABET_STYLE_CONSTANTS } from '../Alphabet/Alphabet';
 import styled from 'styled-components';
 
 const StyledAlphabets = styled.div`
   display: grid;
   grid-gap: 35px;
-  grid-template-columns: repeat(auto-fit, 140px);
+  grid-template-columns: repeat(
+    auto-fit,
+    ${ALPHABET_STYLE_CONSTANTS.boxSize}px
+  );
   justify-content: space-between;
 `;
 

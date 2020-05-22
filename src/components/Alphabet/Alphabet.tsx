@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+export const ALPHABET_STYLE_CONSTANTS = {
+  boxSize: 100,
+};
+
 const StyledAlphabet = styled.div`
-  height: 140px;
-  width: 140px;
+  height: ${ALPHABET_STYLE_CONSTANTS.boxSize}px;
+  width: ${ALPHABET_STYLE_CONSTANTS.boxSize}px;
   font-family: 'Fira Code', 'Papyrus';
   display: flex;
   align-items: center;
@@ -12,7 +16,7 @@ const StyledAlphabet = styled.div`
   cursor: pointer;
 
   > p {
-    font-size: 104px;
+    font-size: 70px;
     margin: 0;
   }
 `;
