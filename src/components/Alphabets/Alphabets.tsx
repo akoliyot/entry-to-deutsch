@@ -1,5 +1,13 @@
 import React from 'react';
 import { Alphabet } from '../Alphabet/Alphabet';
+import styled from 'styled-components';
+
+const StyledAlphabets = styled.div`
+  display: grid;
+  grid-gap: 35px;
+  grid-template-columns: repeat(auto-fit, 140px);
+  justify-content: space-between;
+`;
 
 export const Alphabets: React.FC = () => {
   const generateAlphabets = () => {
@@ -19,5 +27,5 @@ export const Alphabets: React.FC = () => {
     return alphabetComponents;
   };
 
-  return <>{generateAlphabets()}</>;
+  return <StyledAlphabets>{generateAlphabets()}</StyledAlphabets>;
 };
