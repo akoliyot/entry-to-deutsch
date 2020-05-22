@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 export const ALPHABET_STYLE_CONSTANTS = {
@@ -18,96 +18,17 @@ const StyledAlphabet = styled.div`
   > p {
     font-size: 70px;
     margin: 0;
+    pointer-events: none;
   }
 `;
 interface Props {
   char: string;
+  onClick?: (e: React.MouseEvent) => void;
 }
 
-const getCharAudio = (char: string) => {
-  switch (char) {
-    case 'a':
-      return require('../../assets/a.wav');
-    case 'b':
-      return require('../../assets/b.wav');
-    case 'c':
-      return require('../../assets/c.wav');
-    case 'd':
-      return require('../../assets/d.wav');
-    case 'e':
-      return require('../../assets/e.wav');
-    case 'f':
-      return require('../../assets/f.wav');
-    case 'g':
-      return require('../../assets/g.wav');
-    case 'h':
-      return require('../../assets/h.wav');
-    case 'i':
-      return require('../../assets/i.wav');
-    case 'j':
-      return require('../../assets/j.wav');
-    case 'k':
-      return require('../../assets/k.wav');
-    case 'l':
-      return require('../../assets/l.wav');
-    case 'm':
-      return require('../../assets/m.wav');
-    case 'n':
-      return require('../../assets/n.wav');
-    case 'o':
-      return require('../../assets/o.wav');
-    case 'p':
-      return require('../../assets/p.wav');
-    case 'q':
-      return require('../../assets/q.wav');
-    case 'r':
-      return require('../../assets/r.wav');
-    case 's':
-      return require('../../assets/s.wav');
-    case 't':
-      return require('../../assets/t.wav');
-    case 'u':
-      return require('../../assets/u.wav');
-    case 'v':
-      return require('../../assets/v.wav');
-    case 'w':
-      return require('../../assets/w.wav');
-    case 'x':
-      return require('../../assets/x.wav');
-    case 'y':
-      return require('../../assets/y.wav');
-    case 'z':
-      return require('../../assets/z.wav');
-    case 'ä':
-      return require('../../assets/ae.wav');
-    case 'ö':
-      return require('../../assets/oe.wav');
-    case 'ü':
-      return require('../../assets/ue.wav');
-    case 'ß':
-      return require('../../assets/esszett.wav');
-  }
-};
-
-export const Alphabet: React.FC<Props> = ({ char }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const playAudio = () => {
-    if (isPlaying) {
-      return;
-    }
-
-    setIsPlaying(true);
-
-    const audio = new Audio(getCharAudio(char));
-    audio.addEventListener('ended', () => {
-      setIsPlaying(false);
-    });
-    audio.play();
-  };
-
+export const Alphabet: React.FC<Props> = ({ char, onClick }) => {
   return (
-    <StyledAlphabet onClick={playAudio}>
+    <StyledAlphabet data-char={char}>
       <p>{char}</p>
     </StyledAlphabet>
   );
