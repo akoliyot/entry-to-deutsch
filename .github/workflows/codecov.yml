@@ -1,0 +1,12 @@
+name: Codecov
+
+on: pull_request
+
+jobs:
+  name: Code Coverage Check
+  runs-on: ubuntu-latest
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Generate coverage report
+      run: yarn test --coverage
