@@ -4,5 +4,5 @@ import { useValue } from 'react-cosmos/fixture';
 
 export default () => {
   const [char] = useValue('char', { defaultValue: 'b' });
-  return <Alphabet char={char} />;
+  return <Alphabet isActive={false} char={char} />;
 };
