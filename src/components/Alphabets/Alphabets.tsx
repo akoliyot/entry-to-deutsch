@@ -28,7 +28,7 @@ export const Alphabets: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [activatedChar, setActivatedChar] = useState('');
 
-  const playAudio = (char) => {
+  const playAudio = (char: any) => {
     if (isPlaying) {
       return;
     }
