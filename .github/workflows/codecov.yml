@@ -14,3 +14,8 @@ jobs:
 
       - name: Generate coverage report
         run: yarn test --coverage
+
+      - name: Send coverage report to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          files: ./coverage/clover.xml
