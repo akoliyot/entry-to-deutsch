@@ -8,5 +8,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: yarn
+
       - name: Generate coverage report
         run: yarn test --coverage
