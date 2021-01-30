@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alphabet should render correctly 1`] = `
+<Alphabet
+  char="a"
+  isActive={false}
+/>
+`;
