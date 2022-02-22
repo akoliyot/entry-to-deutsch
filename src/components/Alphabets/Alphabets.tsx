@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Alphabet, ALPHABET_STYLE_CONSTANTS } from '../Alphabet/Alphabet';
 import styled from 'styled-components';
-import { getCharAudio } from '../../helpers/audioHelper';
+import { useAlphabetAudio } from '../../hooks/useAlphabetAudio';
 
 const StyledAlphabets = styled.div`
   display: grid;
@@ -25,28 +25,15 @@ const StyledSpecialAlphabets = styled.div`
 `;
 
 export const Alphabets: React.FC = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
   const [activatedChar, setActivatedChar] = useState('');
-
-  const playAudio = (char: any) => {
-    if (isPlaying) {
-      return;
-    }
-
-    setIsPlaying(true);
-
-    const audio = new Audio(getCharAudio(char));
-    audio.addEventListener('ended', () => {
-      setIsPlaying(false);
-      setActivatedChar('');
-    });
-    audio.play();
-  };
+  const playAudio = useAlphabetAudio();
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
       let char = e.key;
 
+      // Adding easy keyboard shortucts for special
+      // chars.
       switch (e.keyCode) {
         case 65:
           char = 'ä';

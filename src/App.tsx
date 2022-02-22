@@ -7,12 +7,12 @@ const StyledApp = styled.div`
   margin: 0 auto;
 `;
 
-function App() {
+const App = () => {
   return (
     <StyledApp>
       <Alphabets />
     </StyledApp>
   );
-}
+};
 
 export default App;
