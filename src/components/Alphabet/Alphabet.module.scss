@@ -1,0 +1,32 @@
+.root {
+  height: 50px;
+  width: 50px;
+  font-family: 'Fira Code', 'Papyrus';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed #cacaca;
+  cursor: pointer;
+  margin-right: 15px;
+  margin-bottom: 15px;
+
+  > p {
+    font-size: 42px;
+    margin: 0;
+    pointer-events: none;
+  }
+
+  @keyframes highlight {
+    0% {
+      background-color: white;
+    }
+
+    50% {
+      background-color: #cacaca;
+    }
+
+    100% {
+      background-color: white;
+    }
+  }
+}

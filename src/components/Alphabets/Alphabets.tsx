@@ -1,28 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Alphabet, ALPHABET_STYLE_CONSTANTS } from '../Alphabet/Alphabet';
-import styled from 'styled-components';
+import { Alphabet } from '../Alphabet/Alphabet';
 import { useAlphabetAudio } from '../../hooks/useAlphabetAudio';
-
-const StyledAlphabets = styled.div`
-  display: grid;
-  grid-gap: 35px;
-  grid-template-columns: repeat(
-    auto-fit,
-    ${ALPHABET_STYLE_CONSTANTS.boxSize}px
-  );
-  justify-content: space-between;
-  margin-bottom: 100px;
-`;
-
-const StyledSpecialAlphabets = styled.div`
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    ${ALPHABET_STYLE_CONSTANTS.boxSize}px
-  );
-  grid-gap: 35px;
-  justify-content: space-between;
-`;
+import styles from './Alphabets.module.scss';
+import classNames from 'classnames';
 
 export const Alphabets: React.FC = () => {
   const [activatedChar, setActivatedChar] = useState('');
@@ -32,7 +12,7 @@ export const Alphabets: React.FC = () => {
     const handleKeyPress = (e: KeyboardEvent) => {
       let char = e.key;
 
-      // Adding easy keyboard shortucts for special
+      // Adding easy keyboard shortcuts for special
       // chars.
       switch (e.keyCode) {
         case 65:
@@ -72,15 +52,10 @@ export const Alphabets: React.FC = () => {
     playAudio(char);
   };
 
-  const generateAlphabets = () => {
-    const charCodeForLowerA = 97;
-    const charCodeForLowerZ = 122;
-    let charCode = charCodeForLowerA;
-
+  const generateRowForAlphabets = (alphabets: string[]) => {
     const alphabetComponents = [];
 
-    while (charCode <= charCodeForLowerZ) {
-      const char = String.fromCharCode(charCode);
+    for (let char of alphabets) {
       alphabetComponents.push(
         <Alphabet
           key={char}
@@ -88,21 +63,41 @@ export const Alphabets: React.FC = () => {
           char={char}
         />
       );
-      charCode++;
     }
 
     return alphabetComponents;
   };
 
   return (
-    <div onClick={handleClick}>
-      <StyledAlphabets>{generateAlphabets()}</StyledAlphabets>
-      <StyledSpecialAlphabets>
+    <div className={styles.root} onClick={handleClick}>
+      <div className={styles.alphabets}>
+        {generateRowForAlphabets([
+          'q',
+          'w',
+          'e',
+          'r',
+          't',
+          'y',
+          'u',
+          'i',
+          'o',
+          'p',
+        ])}
+      </div>
+      <div className={classNames(styles.alphabets, styles.row2)}>
+        {generateRowForAlphabets(['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'])}
+      </div>
+      <div className={classNames(styles.alphabets, styles.row3)}>
+        {generateRowForAlphabets(['z', 'x', 'c', 'v', 'b', 'n', 'm'])}
+      </div>
+      <br />
+      <br />
+      <div className={styles.specialAlphabets}>
         <Alphabet isActive={activatedChar === 'ä' ? true : false} char="ä" />
         <Alphabet isActive={activatedChar === 'ö' ? true : false} char="ö" />
         <Alphabet isActive={activatedChar === 'ü' ? true : false} char="ü" />
         <Alphabet isActive={activatedChar === 'ß' ? true : false} char="ß" />
-      </StyledSpecialAlphabets>
+      </div>
     </div>
   );
 };

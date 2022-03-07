@@ -1,17 +1,13 @@
 import React from 'react';
 import { Alphabets } from './components/Alphabets/Alphabets';
-import styled from 'styled-components';
-
-const StyledApp = styled.div`
-  max-width: 920px;
-  margin: 0 auto;
-`;
+import styles from './App.module.scss';
+import './index.css';
 
 const App = () => {
   return (
-    <StyledApp>
+    <div className={styles.root}>
       <Alphabets />
-    </StyledApp>
+    </div>
   );
 };
 
