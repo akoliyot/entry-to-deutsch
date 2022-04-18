@@ -25,54 +25,98 @@ import audioW from '../assets/w.wav';
 import audioX from '../assets/x.wav';
 import audioY from '../assets/y.wav';
 import audioZ from '../assets/z.wav';
-import audioAe from '../assets/ae.wav';
-import audioOe from '../assets/oe.wav';
-import audioUe from '../assets/ue.wav';
+import audioAE from '../assets/ae.wav';
+import audioOE from '../assets/oe.wav';
+import audioUE from '../assets/ue.wav';
 import audioEsszett from '../assets/esszett.wav';
-
-
+import { useState } from 'react';
+import { ExposedData, PlayFunction } from 'use-sound/dist/types';
 
 export const useAlphabetAudio = () => {
-    // Assign the play() function to each alphabet.
-    const alphabets = new Map([
-        ['a', useSound(audioA)[0]], 
-        ['b', useSound(audioB)[0]],
-        ['c', useSound(audioC)[0]],
-        ['d', useSound(audioD)[0]],
-        ['e', useSound(audioE)[0]],
-        ['f', useSound(audioF)[0]],
-        ['g', useSound(audioG)[0]],
-        ['h', useSound(audioH)[0]],
-        ['i', useSound(audioI)[0]],
-        ['j', useSound(audioJ)[0]],
-        ['k', useSound(audioK)[0]],
-        ['l', useSound(audioL)[0]],
-        ['m', useSound(audioM)[0]],
-        ['n', useSound(audioN)[0]],
-        ['o', useSound(audioO)[0]],
-        ['p', useSound(audioP)[0]],
-        ['q', useSound(audioQ)[0]],
-        ['r', useSound(audioR)[0]],
-        ['s', useSound(audioS)[0]],
-        ['t', useSound(audioT)[0]],
-        ['u', useSound(audioU)[0]],
-        ['v', useSound(audioV)[0]],
-        ['w', useSound(audioW)[0]],
-        ['x', useSound(audioX)[0]],
-        ['y', useSound(audioY)[0]],
-        ['z', useSound(audioZ)[0]],
-        ['ä', useSound(audioAe)[0]],
-        ['ö', useSound(audioOe)[0]],
-        ['ü', useSound(audioUe)[0]],
-        ['ß', useSound(audioEsszett)[0]],
-    ]);
-    
-    const playAudio = (char: string) => {
-        console.log('playing audio for ', char)
+  const [stopTarget, setStopTarget] = useState<ExposedData | null>(null);
 
-        if (alphabets.has(char)) {
-            alphabets.get(char)?.();
-        }
+  const [playA, optionsA] = useSound(audioA);
+  const [playB, optionsB] = useSound(audioB);
+  const [playC, optionsC] = useSound(audioC);
+  const [playD, optionsD] = useSound(audioD);
+  const [playE, optionsE] = useSound(audioE);
+  const [playF, optionsF] = useSound(audioF);
+  const [playG, optionsG] = useSound(audioG);
+  const [playH, optionsH] = useSound(audioH);
+  const [playI, optionsI] = useSound(audioI);
+  const [playJ, optionsJ] = useSound(audioJ);
+  const [playK, optionsK] = useSound(audioK);
+  const [playL, optionsL] = useSound(audioL);
+  const [playM, optionsM] = useSound(audioM);
+  const [playN, optionsN] = useSound(audioN);
+  const [playO, optionsO] = useSound(audioO);
+  const [playP, optionsP] = useSound(audioP);
+  const [playQ, optionsQ] = useSound(audioQ);
+  const [playR, optionsR] = useSound(audioR);
+  const [playS, optionsS] = useSound(audioS);
+  const [playT, optionsT] = useSound(audioT);
+  const [playU, optionsU] = useSound(audioU);
+  const [playV, optionsV] = useSound(audioV);
+  const [playW, optionsW] = useSound(audioW);
+  const [playX, optionsX] = useSound(audioX);
+  const [playY, optionsY] = useSound(audioY);
+  const [playZ, optionsZ] = useSound(audioZ);
+
+  const [playAE, optionsAE] = useSound(audioAE);
+  const [playOE, optionsOE] = useSound(audioOE);
+  const [playUE, optionsUE] = useSound(audioUE);
+  const [playEsszett, optionsEsszett] = useSound(audioEsszett);
+
+  // Assign the play() function to each alphabet.
+  const alphabets = new Map([
+    ['a', [playA, optionsA]],
+    ['b', [playB, optionsB]],
+    ['c', [playC, optionsC]],
+    ['d', [playD, optionsD]],
+    ['e', [playE, optionsE]],
+    ['f', [playF, optionsF]],
+    ['g', [playG, optionsG]],
+    ['h', [playH, optionsH]],
+    ['i', [playI, optionsI]],
+    ['j', [playJ, optionsJ]],
+    ['k', [playK, optionsK]],
+    ['l', [playL, optionsL]],
+    ['m', [playM, optionsM]],
+    ['n', [playN, optionsN]],
+    ['o', [playO, optionsO]],
+    ['p', [playP, optionsP]],
+    ['q', [playQ, optionsQ]],
+    ['r', [playR, optionsR]],
+    ['s', [playS, optionsS]],
+    ['t', [playT, optionsT]],
+    ['u', [playU, optionsU]],
+    ['v', [playV, optionsV]],
+    ['w', [playW, optionsW]],
+    ['x', [playX, optionsX]],
+    ['y', [playY, optionsY]],
+    ['z', [playZ, optionsZ]],
+    ['ä', [playAE, optionsAE]],
+    ['ö', [playOE, optionsOE]],
+    ['ü', [playUE, optionsUE]],
+    ['ß', [playEsszett, optionsEsszett]],
+  ]);
+
+  const playAudio = (char: string) => {
+    if (stopTarget) {
+      stopTarget.stop();
     }
-    return playAudio;
-}
+
+    if (alphabets.has(char)) {
+      let soundFunctions = alphabets.get(char);
+
+      if (Array.isArray(soundFunctions)) {
+        const play = soundFunctions[0] as PlayFunction;
+        const options = soundFunctions[1] as ExposedData;
+        play();
+        setStopTarget(options);
+      }
+    }
+  };
+
+  return playAudio;
+};
