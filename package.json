@@ -55,7 +55,7 @@
     "@babel/plugin-transform-template-literals": "^7.18.9",
     "@babel/preset-env": "^7.22.20",
     "@babel/preset-react": "^7.22.15",
-    "@babel/preset-typescript": "^7.23.0",
+    "@babel/preset-typescript": "^7.23.2",
     "@commitlint/cli": "^17.7.2",
     "css-loader": "^6.8.1",
     "html-webpack-plugin": "^5.5.3",
