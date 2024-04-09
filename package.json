@@ -67,6 +67,6 @@
     "husky": "^9.0.11",
     "prettier": "3.2.5",
     "react-cosmos": "^6.1.1",
-    "style-loader": "^3.3.4"
+    "style-loader": "^4.0.0"
   }
 }
