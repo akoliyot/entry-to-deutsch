@@ -61,7 +61,7 @@
     "@babel/preset-env": "^7.24.4",
     "@babel/preset-react": "^7.24.1",
     "@babel/preset-typescript": "^7.24.1",
-    "@commitlint/cli": "^19.2.1",
+    "@commitlint/cli": "^19.2.2",
     "css-loader": "^7.1.1",
     "html-webpack-plugin": "^5.6.0",
     "husky": "^9.0.11",
