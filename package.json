@@ -65,7 +65,7 @@
     "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.0",
     "husky": "^9.0.11",
-    "prettier": "3.2.5",
+    "prettier": "3.3.0",
     "react-cosmos": "^6.1.1",
     "style-loader": "^4.0.0"
   }
