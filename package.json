@@ -19,7 +19,7 @@
     "react-scripts": "5.0.1",
     "styled-components": "^6.1.11",
     "typescript": "^5.5.2",
-    "use-sound": "^4.0.1"
+    "use-sound": "^4.0.3"
   },
   "overrides": {
     "react-scripts": {
