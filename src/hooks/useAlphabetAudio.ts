@@ -32,40 +32,44 @@ import audioEsszett from '../assets/esszett.wav';
 import { useState } from 'react';
 import { ExposedData, PlayFunction } from 'use-sound/dist/types';
 
-export const useAlphabetAudio = () => {
+export const useAlphabetAudio = (onAudioEnd: () => void) => {
   const [stopTarget, setStopTarget] = useState<ExposedData | null>(null);
 
-  const [playA, optionsA] = useSound(audioA);
-  const [playB, optionsB] = useSound(audioB);
-  const [playC, optionsC] = useSound(audioC);
-  const [playD, optionsD] = useSound(audioD);
-  const [playE, optionsE] = useSound(audioE);
-  const [playF, optionsF] = useSound(audioF);
-  const [playG, optionsG] = useSound(audioG);
-  const [playH, optionsH] = useSound(audioH);
-  const [playI, optionsI] = useSound(audioI);
-  const [playJ, optionsJ] = useSound(audioJ);
-  const [playK, optionsK] = useSound(audioK);
-  const [playL, optionsL] = useSound(audioL);
-  const [playM, optionsM] = useSound(audioM);
-  const [playN, optionsN] = useSound(audioN);
-  const [playO, optionsO] = useSound(audioO);
-  const [playP, optionsP] = useSound(audioP);
-  const [playQ, optionsQ] = useSound(audioQ);
-  const [playR, optionsR] = useSound(audioR);
-  const [playS, optionsS] = useSound(audioS);
-  const [playT, optionsT] = useSound(audioT);
-  const [playU, optionsU] = useSound(audioU);
-  const [playV, optionsV] = useSound(audioV);
-  const [playW, optionsW] = useSound(audioW);
-  const [playX, optionsX] = useSound(audioX);
-  const [playY, optionsY] = useSound(audioY);
-  const [playZ, optionsZ] = useSound(audioZ);
+  const useSoundOptions = {
+    onend: onAudioEnd,
+  };
 
-  const [playAE, optionsAE] = useSound(audioAE);
-  const [playOE, optionsOE] = useSound(audioOE);
-  const [playUE, optionsUE] = useSound(audioUE);
-  const [playEsszett, optionsEsszett] = useSound(audioEsszett);
+  const [playA, optionsA] = useSound(audioA, useSoundOptions);
+  const [playB, optionsB] = useSound(audioB, useSoundOptions);
+  const [playC, optionsC] = useSound(audioC, useSoundOptions);
+  const [playD, optionsD] = useSound(audioD, useSoundOptions);
+  const [playE, optionsE] = useSound(audioE, useSoundOptions);
+  const [playF, optionsF] = useSound(audioF, useSoundOptions);
+  const [playG, optionsG] = useSound(audioG, useSoundOptions);
+  const [playH, optionsH] = useSound(audioH, useSoundOptions);
+  const [playI, optionsI] = useSound(audioI, useSoundOptions);
+  const [playJ, optionsJ] = useSound(audioJ, useSoundOptions);
+  const [playK, optionsK] = useSound(audioK, useSoundOptions);
+  const [playL, optionsL] = useSound(audioL, useSoundOptions);
+  const [playM, optionsM] = useSound(audioM, useSoundOptions);
+  const [playN, optionsN] = useSound(audioN, useSoundOptions);
+  const [playO, optionsO] = useSound(audioO, useSoundOptions);
+  const [playP, optionsP] = useSound(audioP, useSoundOptions);
+  const [playQ, optionsQ] = useSound(audioQ, useSoundOptions);
+  const [playR, optionsR] = useSound(audioR, useSoundOptions);
+  const [playS, optionsS] = useSound(audioS, useSoundOptions);
+  const [playT, optionsT] = useSound(audioT, useSoundOptions);
+  const [playU, optionsU] = useSound(audioU, useSoundOptions);
+  const [playV, optionsV] = useSound(audioV, useSoundOptions);
+  const [playW, optionsW] = useSound(audioW, useSoundOptions);
+  const [playX, optionsX] = useSound(audioX, useSoundOptions);
+  const [playY, optionsY] = useSound(audioY, useSoundOptions);
+  const [playZ, optionsZ] = useSound(audioZ, useSoundOptions);
+
+  const [playAE, optionsAE] = useSound(audioAE, useSoundOptions);
+  const [playOE, optionsOE] = useSound(audioOE, useSoundOptions);
+  const [playUE, optionsUE] = useSound(audioUE, useSoundOptions);
+  const [playEsszett, optionsEsszett] = useSound(audioEsszett, useSoundOptions);
 
   // Assign the play() function to each alphabet.
   const alphabets = new Map([

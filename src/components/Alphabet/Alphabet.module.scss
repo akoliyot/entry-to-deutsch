@@ -5,10 +5,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px dashed #cacaca;
+  border: 1px dashed #dfe833;
   cursor: pointer;
   margin-right: 15px;
   margin-bottom: 15px;
+  background-color: transparent;
+  transition: background-color 300ms ease-in-out;
+
+  &.active {
+    background-color: #f5ff2463;
+    // background-color: tomato;
+  }
 
   > p {
     font-size: 42px;

@@ -6,7 +6,10 @@ import classNames from 'classnames';
 
 export const Alphabets: React.FC = () => {
   const [activatedChar, setActivatedChar] = useState('');
-  const playAudio = useAlphabetAudio();
+  const onAudioEnd = () => {
+    setActivatedChar('');
+  };
+  const playAudio = useAlphabetAudio(onAudioEnd);
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
@@ -61,7 +64,7 @@ export const Alphabets: React.FC = () => {
           key={char}
           isActive={activatedChar === char ? true : false}
           char={char}
-        />
+        />,
       );
     }
 
