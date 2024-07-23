@@ -62,7 +62,8 @@ export const Alphabets: React.FC = () => {
       alphabetComponents.push(
         <Alphabet
           key={char}
-          isActive={activatedChar === char ? true : false}
+          shortcutKey={char}
+          isActive={activatedChar === char}
           char={char}
         />,
       );
@@ -96,10 +97,26 @@ export const Alphabets: React.FC = () => {
       <br />
       <br />
       <div className={styles.specialAlphabets}>
-        <Alphabet isActive={activatedChar === 'ä' ? true : false} char="ä" />
-        <Alphabet isActive={activatedChar === 'ö' ? true : false} char="ö" />
-        <Alphabet isActive={activatedChar === 'ü' ? true : false} char="ü" />
-        <Alphabet isActive={activatedChar === 'ß' ? true : false} char="ß" />
+        <Alphabet
+          isActive={activatedChar === 'ä'}
+          char="ä"
+          shortcutKey="shift + a"
+        />
+        <Alphabet
+          isActive={activatedChar === 'ö'}
+          char="ö"
+          shortcutKey="shift + o"
+        />
+        <Alphabet
+          isActive={activatedChar === 'ü'}
+          char="ü"
+          shortcutKey="shift + u"
+        />
+        <Alphabet
+          isActive={activatedChar === 'ß'}
+          char="ß"
+          shortcutKey="shift + s"
+        />
       </div>
     </div>
   );
