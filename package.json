@@ -18,7 +18,7 @@
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
     "styled-components": "^6.1.12",
-    "typescript": "^5.5.3",
+    "typescript": "^5.5.4",
     "use-sound": "^4.0.3"
   },
   "overrides": {
