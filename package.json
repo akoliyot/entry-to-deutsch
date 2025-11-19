@@ -63,7 +63,7 @@
     "@babel/preset-typescript": "^7.28.5",
     "@commitlint/cli": "^20.1.0",
     "css-loader": "^7.1.2",
-    "html-webpack-plugin": "^5.6.4",
+    "html-webpack-plugin": "^5.6.5",
     "husky": "^9.1.7",
     "prettier": "3.6.2",
     "sass": "^1.94.0",
