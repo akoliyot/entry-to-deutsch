@@ -16,7 +16,7 @@
     "classnames": "^2.5.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "styled-components": "^6.3.10",
+    "styled-components": "^6.3.11",
     "typescript": "^5.9.3",
     "use-sound": "^5.0.0"
   },
