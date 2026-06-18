@@ -57,7 +57,7 @@
   },
   "devDependencies": {
     "@babel/core": "^8.0.0",
-    "@babel/plugin-transform-template-literals": "^8.0.0",
+    "@babel/plugin-transform-template-literals": "^8.0.1",
     "@babel/preset-env": "^8.0.0",
     "@babel/preset-react": "^8.0.1",
     "@babel/preset-typescript": "^8.0.0",
